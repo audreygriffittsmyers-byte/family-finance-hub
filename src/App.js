@@ -3,31 +3,31 @@ import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 // ─── Design Tokens ─────────────────────────────────────────────────────────
-// Forest & Earth palette with terracotta surprise accent
+// Forest & Earth — LIGHT theme, warm cream base
 const T = {
-  bg:        "#0f130e",   // deep forest floor
-  bgCard:    "#161c14",   // dark moss
-  bgInput:   "#1e2a1a",   // understory
-  bgHover:   "#243020",   // fern shadow
-  border:    "#2e3d28",   // bark
-  borderLight:"#3a4e32",  // lichen
-  text:      "#e8e4d8",   // parchment
-  textMid:   "#a09880",   // dried grass
-  textDim:   "#5c6650",   // shadow moss
-  accent:    "#c8714a",   // terracotta (surprise!)
-  accentHov: "#d4835e",
-  accentText:"#fff5f0",
-  green:     "#6aab5a",   // leaf green
-  greenDim:  "#3d6632",
-  gold:      "#c9a84c",   // autumn gold
-  goldDim:   "#7a6020",
-  red:       "#b85c4a",   // rust red
-  sage:      "#7a9e6e",   // sage
-  sand:      "#c4a96a",   // sandy
-  teal:      "#4a8e7e",   // forest teal
+  bg:          "#f5f0e8",   // warm cream page
+  bgCard:      "#fdfaf4",   // soft white card
+  bgInput:     "#f0ebe0",   // light parchment input
+  bgHover:     "#e8e0d0",   // hovered item
+  border:      "#d8cfc0",   // warm tan border
+  borderLight: "#e4ddd0",   // subtle border
+  text:        "#2a2318",   // deep walnut text
+  textMid:     "#6b5e4a",   // medium warm brown
+  textDim:     "#9c8c78",   // muted warm gray
+  accent:      "#b85c30",   // deep terracotta
+  accentHov:   "#a04e26",
+  accentText:  "#ffffff",
+  green:       "#3d7a35",   // forest green
+  greenDim:    "#5a9e50",
+  gold:        "#a07820",   // deep autumn gold
+  goldDim:     "#c49a30",
+  red:         "#a03828",   // dark rust
+  sage:        "#527a48",   // sage green
+  sand:        "#9a7840",   // sandy brown
+  teal:        "#2e7060",   // deep forest teal
 };
 
-const CHART_COLORS = [T.accent, T.green, T.gold, T.teal, T.sage, T.sand, "#9b7ec8", "#c87a7a", "#7ab5c8", "#c8b47a", "#8ac87a"];
+const CHART_COLORS = [T.accent, T.green, T.gold, T.teal, T.sage, T.sand, "#7a6ec8", "#c86a6a", "#6aaec8", "#c8a45a", "#5ab86a"];
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 const fmt = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 }).format(n || 0);
@@ -957,7 +957,7 @@ export default function App() {
         @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: ${T.bg}; }
+        ::-webkit-scrollbar-track { background: ${T.bgInput}; }
         ::-webkit-scrollbar-thumb { background: ${T.border}; border-radius: 3px; }
         input, select { transition: border-color 0.15s; }
         input:focus, select:focus { border-color: ${T.accent} !important; }
