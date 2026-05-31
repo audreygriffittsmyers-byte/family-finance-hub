@@ -1,6 +1,6 @@
 
-import { useState, useEffect, useCallback } from "react";
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
+import { useState, useEffect } from "react";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 const fmt = (n) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 }).format(n || 0);
@@ -854,9 +854,6 @@ function SettingsTab({ data, setData }) {
     }
   };
 
-  const totalIncome = data.incomes.reduce((s, i) => s + (i.frequency === "biweekly" ? i.amount * 2.17 : i.frequency === "weekly" ? i.amount * 4.33 : i.amount), 0);
-  const totalBills = data.bills.reduce((s, b) => s + b.amount, 0);
-  const totalBudget = data.budgets.reduce((s, b) => s + b.budgeted, 0);
   const totalSaved = data.savings.reduce((s, g) => s + g.saved, 0);
 
   return (
@@ -928,11 +925,8 @@ const TABS = [
 export default function App() {
   const [data, setData] = useState(load);
   const [tab, setTab] = useState("dashboard");
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => { save(data); }, [data]);
-
-  const currentTab = TABS.find(t => t.id === tab);
 
   return (
     <div style={{ minHeight:"100vh",background:"#0d0f16",color:"#f0f2f7",fontFamily:"'DM Sans',sans-serif",display:"flex" }}>
