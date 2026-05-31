@@ -849,7 +849,7 @@ function SettingsTab({ data, setData }) {
   };
 
   const clearAll = () => {
-    if (confirm("This will erase ALL your data. Are you sure?")) {
+    if (window.confirm("This will erase ALL your data. Are you sure?")) {
       setData(SEED); save(SEED);
     }
   };
